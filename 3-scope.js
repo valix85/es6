@@ -16,6 +16,8 @@ if(true){
     console.log(k);
 }
 
+
+
 console.log(x);
 //console.log(y); //y is not defined
 //console.log(k); //k is not defined
@@ -27,17 +29,18 @@ console.log(x);
     a;
     {
         //let a=2;
-        //a = 2;
+        //a = 3;
         a;        
     }
     a;    
 }
 //block
 {
-    const a=1;
+    const a=100;
     a;
     {
-        const a=2;
+        //const a=2;         
+        //let a= 2
         //a = 2;
         a;
     }
@@ -48,7 +51,7 @@ console.log(x);
     var a=1;
     a;
     {
-        var a=2; //override external variable
+        //var a=20; //override external variable
         //a = 2;
         a;
     }
@@ -58,10 +61,10 @@ console.log(x);
 
 
 //same example with a function
-{
+{  
     const fn = ()=>{return 1;}
     console.log(fn()); 
-    {
+    {     
         const fn = ()=>{return 2;}
         console.log(fn());
     }
@@ -71,21 +74,25 @@ console.log(x);
 
 
 
+//The "use strict" directive is only recognized at the beginning of a script or a function.
 
-{
+function aaa(){
     "use strict";
     {
-        function fn(){return 1;}
+        function fn(){return 10;}
         console.log(fn()); 
         {
             
             function fn(){return 2;}
-            function fn(){return 3;}
+            function fn2(){return 3;} //try to rename in fn
             console.log(fn());
         }
         console.log(fn());
     }
 }
+
+
+aaa();
 
 
 
@@ -107,7 +114,14 @@ for (var i = 0; i < MAX; i++) {
     console.log(i);
   });
 }
- 
+
+
+
+
+
+
+
+
 for (let i = 0; i < MAX; i++) {
   setTimeout(function() {
     console.log(i);

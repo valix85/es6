@@ -5,7 +5,7 @@ const arr = [1, 2, 3, 4];
 const byTwo = arr.map(function (number) { return number * 2; });
 const byThree = arr.map((number) => { return number * 3; });
 const forTwo = arr.map(number => number / 2);
-const toObj = arr.map(number => ({ number: number })); //parentesis are necessary if it return an object directly
+const toObj = arr.map(number => ({ num: number })); //parentesis are necessary if it return an object directly
 const reMap = arr.map(() => -1);
 
 arr;
@@ -70,7 +70,6 @@ obj.increment();
             return [this.x, this.y];
         }
     }
-
     obj.update();
 
     console.log(obj.getPosition());
@@ -87,9 +86,11 @@ obj.increment();
 const person = {
     name: 'bob',
     updateName: function () {
+        console.log(this.name);
         (function () {
             this.name = 'suzy'
         })();
+        console.log(name);
     }
 }
 person.updateName()
@@ -114,16 +115,26 @@ console.log(person.name);
 
 const person1 = {
     name: 'bob',
-    updateName: function () {
-        (() => {
+    updateName: function () {        
+        //IIFE
+        (function()  {
             this.name = 'suzy'
+            name="mark";    //to global scope (window)
         })();
+        console.log(name);        
+        console.log(this.name);
     }
 }
 person1.updateName()
 console.log(person1.name);
+console.log(name);      //from global scope (windows)
+
 
 //by using the arrow function, the internal IIFE is bound to the person objects scope
+//qualsiasi cosa non dichiarata viene assegnata allo scope globale di quella funzione
+
+//IIFE 
+// https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6
 
 
 

@@ -17,7 +17,7 @@ function buy (item, amount){
 */
 
 //ES6
-function buy (item = {item:"food"}, amount =1){
+function buy (item = {item:"food"}, amount = 1){
     //invoke service/db to save the data
     //...more logic
     item;
@@ -25,7 +25,7 @@ function buy (item = {item:"food"}, amount =1){
     return;
 }
 
-//buy("eggs",5); //this is ok
+buy("eggs",5); //this is ok
 buy("eggs");
 buy();
 //default value can be any different type to item passed
@@ -44,10 +44,13 @@ function print(age, cars, ...arr){
     console.log(arr);
     console.log(arr[0]);
     */
+    
    //ES6
+   
    console.log(age);
    console.log(cars);
    console.log(arr);
+   
 }
 
 print(13);
@@ -130,10 +133,10 @@ console.log( Math.max(...nums) );
 
 
 function sum(...numbers) {
-    return numbers.reduce((acc, number) => acc + number);
+    return numbers.reduce((acc, number) => acc +number );
 }
  
-const answer = sum(1, 5, 20, 10);
+const answer = sum(1, 5, 20, 10,20,30,34);
  
 console.log(answer);
 

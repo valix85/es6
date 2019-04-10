@@ -33,12 +33,13 @@ function appendCodes(users){
         return user.code;
     });
     */
+    
 
     users.map(function(user){ //codes variable is inherit from external
         return codes.push(user.code);
     });
+    
 }
 
 appendCodes([{code:200},{code:404},{code:500}]);
 codes;
-
