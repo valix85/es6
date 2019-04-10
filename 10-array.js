@@ -22,6 +22,10 @@ function getConfig(){
 
 const [active, numOfCore] = getConfig();
 
+
+
+
+
 active;
 numOfCore;
 
@@ -58,9 +62,6 @@ arr2;
 
 
 
-
-
-
 var isOn = false;
 var amount = 100;
 function setConfig(){}
@@ -84,3 +85,20 @@ function setConfig3([_isOn, _amount]){
 setConfig3([true,200]);
 isOn;
 amount;
+
+
+
+
+
+
+function getConfig3(){
+    return {
+        isPerson:true,
+        age:10,
+        shouldDelete:false
+    };
+}
+
+let {isPerson,age} = getConfig3();
+isPerson;
+age;
