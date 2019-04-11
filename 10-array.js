@@ -102,3 +102,109 @@ function getConfig3(){
 let {isPerson,age} = getConfig3();
 isPerson;
 age;
+
+
+//deep matching
+function getConfig4(){
+    return {
+        isPerson:true,
+        age:10,
+        shouldDelete:false,
+        servers: {
+            a:true,
+            b:"127.0.0.1"
+        }
+    };
+}
+
+var {
+    isPerson: mySpecialFriend,
+    age:anni,
+    servers:{
+        b: myServerB
+    }
+} = getConfig4();
+mySpecialFriend;
+anni;
+myServerB;
+
+
+//default values
+//const arr3 = [1];
+const arr3 = [1,"hello"];
+var [amount, big = 1000] = arr3;
+amount;
+big;
+
+const obj =  {isOn:true, amount:37}
+var {
+    isOn: isServerOn,
+    amount = 399,
+    newProp = "Hello Props"
+} = obj;
+
+isServerOn;
+amount;
+newProp;
+
+
+
+
+
+
+
+
+
+//*******************************
+//*******************************
+//*******************************
+//*******************************
+//*******************************
+//*******************************
+//exercise
+//
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+//Stop Quokka!!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+//which is the output?
+const [first, , third] = 'hello sweet world'.split(' ');
+console.log(first, third);
+
+
+
+
+
+//what prints out to the console?
+const {
+    name,
+    age3,
+    gender = 'm',
+    hairColor: color
+} = {
+    name: 'bob',
+    age3: 20,
+    hairColor: 'blue'
+}
+console.log(name, age3, gender, color);
