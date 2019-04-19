@@ -109,3 +109,80 @@ console.log(iter2.next())
 //spread operator
 const iter3 = obj.myGenArr();
 console.log([...iter3])
+
+
+//Async Example
+/*
+//STEP 1
+function getName(){
+    setTimeout(()=>{console.log("bob");},1000)
+}
+function getAge(){
+    setTimeout(()=>{console.log(33);},2000)
+}
+const name = getName();
+const age = getAge();
+name;
+age;
+*/
+
+//STEP 2 , move in callback
+/*
+function getName(cb){
+    setTimeout(()=>{cb("bob");},1000)
+}
+function getAge(cb){
+    setTimeout(()=>{cb(33);},2000)
+}
+let _name = null;
+let _age = null;
+
+getName((name)=>_name=name);
+getAge((age)=>_age=age);
+
+_name;
+_age;
+//no way to sync it , try yo use promise!!!
+*/
+
+
+
+//STEP 3 try to use generators to right syncronous code
+function getName(){
+    setTimeout(()=>{iterX.next("bob");},4000)
+}
+function getAge(){
+    setTimeout(()=>{iterX.next(33);},2000)
+}
+
+var iterX = (function* () {
+    const namex = yield getName();
+    console.log(namex);
+    const age = yield getAge();
+    console.log(age)
+    //your logic here
+}());
+iterX.next();
+
+//console.log(iterX.next())
+
+
+
+
+//Exercise
+//Implement a generator function called randomHexGenerator which returns a random value from a passed in array of hex values every time it is called.
+
+
+
+var hex = [ 'FF0000', '00FF00', '0000FF', 'FF00FF' ]
+
+function* randomHexGenerator(values){
+    let items = values;
+    //console.log(pos);
+    while(true) {
+        let pos = Math.floor(Math.random() * items.length);
+        yield items[pos];
+    }
+}
+var iter = randomHexGenerator(hex);
+console.log(iter.next());
