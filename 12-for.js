@@ -73,7 +73,7 @@ const obj = {
 
 
 
-const obj = {
+const obj6 = {
     number: 53820391,
     [Symbol.iterator] () {
         let cursor=0;
@@ -89,6 +89,6 @@ const obj = {
 }
 
 
-for (let n of obj){
+for (let n of obj6){
     console.log(n);
 }
